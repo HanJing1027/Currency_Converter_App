@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* CSS Reset */
 html,
 body,
@@ -143,4 +144,121 @@ img {
 
 * {
   font-family: "Noto Sans", serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #A5AEC2;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 370px;
+  background-color: #F6FAFD;
+  padding: 30px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0862745098);
+  border-radius: 8px;
+}
+.wrapper h1 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  color: #3d4454;
+}
+.wrapper form {
+  margin: 40px 0 20px 0;
+}
+.wrapper form :where(input, select, button) {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+form .amount {
+  /* 適用於 WebKit（Chrome, Safari, Edge） */
+  /* 適用於 Firefox */
+}
+form .amount label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+form .amount input[type=number] {
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #CCC;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #F6FAFD;
+  transition: all 0.15s ease;
+}
+form .amount input[type=number]:focus {
+  padding: 0 14px;
+  border: 1px solid #A5AEC2;
+}
+form .amount input[type=number]::-webkit-inner-spin-button,
+form .amount input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+form .amount input[type=number] {
+  -moz-appearance: textfield;
+}
+form .drop-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+form .exchange-rate {
+  font-size: 1.1rem;
+  margin: 20px 0 30px;
+}
+form button {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 15px 0;
+  border-radius: 5px;
+  color: #FFF;
+  background-color: #A5AEC2;
+  transition: all 0.15s ease-in-out;
+}
+form button:hover {
+  transform: scale(0.98);
+}
+
+.drop-list p {
+  text-align: start;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+.drop-list .select-box {
+  width: 115px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+.drop-list .select-box img {
+  max-width: 30px;
+}
+.drop-list .select-box select {
+  cursor: pointer;
+  width: auto;
+  font-size: 1.1rem;
+  margin: 0 -5px 0 5px;
+  background-color: #F6FAFD;
+}
+.drop-list .icon {
+  cursor: pointer;
+  font-size: 1.1rem;
 }/*# sourceMappingURL=style.css.map */

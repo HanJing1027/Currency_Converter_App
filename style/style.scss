@@ -3,3 +3,141 @@
 * {
   font-family: "Noto Sans", serif;
 }
+
+body {
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  height          : 100vh;
+  background-color: #A5AEC2;
+}
+
+.wrapper {
+  width           : 100%;
+  max-width       : 370px;
+  background-color: #F6FAFD;
+  padding         : 30px;
+  box-shadow      : 0 0 5px 1px #00000016;
+  border-radius   : 8px;
+
+  h1 {
+    font-size     : 1.45rem;
+    font-weight   : 600;
+    text-align    : center;
+    text-transform: uppercase;
+    color         : #3d4454;
+  }
+
+  form {
+    margin: 40px 0 20px 0;
+
+    & :where(input, select, button) {
+      width  : 100%;
+      outline: none;
+      border : none;
+    }
+  }
+}
+
+form {
+
+  .amount {
+
+    label {
+      display      : block;
+      margin-bottom: 10px;
+      font-size    : 1.2rem;
+      font-weight  : 500;
+    }
+
+    input[type="number"] {
+      height          : 50px;
+      padding         : 0 15px;
+      border          : 1px solid #CCC;
+      font-size       : 1rem;
+      border-radius   : 8px;
+      background-color: #F6FAFD;
+      transition      : all .15s ease;
+
+      &:focus {
+        padding: 0 14px;
+        border : 1px solid #A5AEC2;
+      }
+    }
+
+    /* 適用於 WebKit（Chrome, Safari, Edge） */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      appearance: none;
+      margin    : 0;
+    }
+
+    /* 適用於 Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  .drop-list {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    margin-top     : 20px;
+  }
+
+  .exchange-rate {
+    font-size: 1.1rem;
+    margin   : 20px 0 30px;
+  }
+
+  button {
+    cursor          : pointer;
+    font-weight     : 500;
+    font-size       : 1.1rem;
+    padding         : 15px 0;
+    border-radius   : 5px;
+    color           : #FFF;
+    background-color: #A5AEC2;
+    transition      : all .15s ease-in-out;
+
+    &:hover {
+      transform: scale(.98);
+    }
+  }
+}
+
+.drop-list {
+
+  p {
+    text-align   : start;
+    font-size    : 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .select-box {
+    width          : 115px;
+    height         : 45px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    border         : 1px solid #999;
+    border-radius  : 5px;
+
+    img {
+      max-width: 30px;
+    }
+
+    select {
+      cursor          : pointer;
+      width           : auto;
+      font-size       : 1.1rem;
+      margin          : 0 -5px 0 5px;
+      background-color: #F6FAFD;
+    }
+  }
+
+  .icon {
+    cursor   : pointer;
+    font-size: 1.1rem;
+  }
+}
