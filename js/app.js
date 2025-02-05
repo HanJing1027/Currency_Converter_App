@@ -35,15 +35,16 @@ for (let i = 0; i < dropList.length; i++) {
 
 // 計算匯率
 const getExchangeRate = async () => {
-  // 取得user金額
-  let amoust = amountInput.value;
+  // 取得使用者輸入金額
+  let amoust = Number(amountInput.value);
 
   // 避免輸入空值或者0
   if (amoust == "" || amoust == "0") {
-    amountInput.value = "1";
+    amountInput.value = 1;
     amoust = 1;
   }
 
+  // 讀取等待訊息
   exchangeRateResult.textContent = "Getting exchange rate…";
 
   const apiURL = `https://v6.exchangerate-api.com/v6/${apikey}/latest/${fromCurrency.value}`;
@@ -55,17 +56,35 @@ const getExchangeRate = async () => {
     // 取得轉換匯率結果
     const data = await response.json();
     let exchangeRate = data.conversion_rates[`${toCurrency.value}`];
+
+    // 計算轉換後的金額
+    let convertedAmount = (amoust * exchangeRate).toFixed(2);
+
     // 渲染結果到畫面上
-    exchangeRateResult.textContent = `${amoust} ${
-      fromCurrency.value
-    } = ${exchangeRate.toFixed(2)} ${toCurrency.value}`;
+    exchangeRateResult.textContent = `${amoust} ${fromCurrency.value} = ${convertedAmount} ${toCurrency.value}`;
   } catch (err) {
     console.error(`錯誤: ${err.message}`);
   }
 };
 
+// 兩邊交換
 exchangeIconBtn.addEventListener("click", () => {
-  //
+  // 交換fromCurrency和toCurrency的value
+  const temp = fromCurrency.value;
+  fromCurrency.value = toCurrency.value;
+  toCurrency.value = temp;
+
+  // 同步更新國旗
+  nationalFlag[0].src = `https://flagsapi.com/${
+    countryList[fromCurrency.value]
+  }/flat/64.png`;
+
+  nationalFlag[1].src = `https://flagsapi.com/${
+    countryList[toCurrency.value]
+  }/flat/64.png`;
+
+  // 重新計算
+  getExchangeRate();
 });
 
 exchangeRateBtn.addEventListener("click", (e) => {
